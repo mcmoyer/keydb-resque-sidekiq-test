@@ -30,3 +30,10 @@ wc -l log.txt && sort -u log.txt | wc -l
 ```
 
 You can change `COUNT` on the resque worker to increase or decrease the amount of forks that will start.  Working with `COUNT=1` will process all 3000 jobs correctly as its a single thread and the replication can keep up with the changes.  To change the sidekiq version, change the `-c` flag.
+
+Depending on how many simultaneous jobs are being processed, your output will look something like
+```
+root@b3fcc970dbf8:/keydb-test# wc -l log.txt && sort -u log.txt | wc -l
+3000 log.txt
+2995
+```
